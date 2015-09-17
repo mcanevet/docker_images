@@ -9,6 +9,7 @@ RUN apt-get update \
   && curl -O http://apt.puppetlabs.com/puppetlabs-release-pc1-wheezy.deb \
   && dpkg -i puppetlabs-release-pc1-wheezy.deb \
   && apt-get update \
-  && apt-get install -y puppetserver=$PUPPETSERVER_VERSION
+  && apt-get install -y puppetserver=$PUPPETSERVER_VERSION \
+  && apt-get clean
 
 ENTRYPOINT ["/opt/puppetlabs/server/bin/puppetserver", "foreground"]
